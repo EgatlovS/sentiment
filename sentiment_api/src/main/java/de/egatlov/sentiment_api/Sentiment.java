@@ -4,58 +4,58 @@ import java.util.List;
 
 public final class Sentiment {
 
-	private final SentimentWords sentimentWords;
-	private final NeutralWords neutralWords;
+	private final Valences valences;
+	private final Neutrals neutrals;
 	private final String name;
 	private final String description;
 
-	public Sentiment(NeutralWords neutralWords, SentimentWords sentimentWords, String name, String description) {
-		this.sentimentWords = sentimentWords;
-		this.neutralWords = neutralWords;
+	public Sentiment(Neutrals neutrals, Valences valences, String name, String description) {
+		this.valences = valences;
+		this.neutrals = neutrals;
 		this.name = name;
 		this.description = description;
 	}
 
-	public Sentiment(NeutralWords neutralWords, SentimentWords sentimentWords, String name) {
-		this(neutralWords, sentimentWords, name, "This is: " + name + " - Sentiment");
+	public Sentiment(Neutrals neutrals, Valences valences, String name) {
+		this(neutrals, valences, name, "This is: " + name + " - Sentiment");
 	}
 
-	public Sentiment(NeutralWords neutralWords, String name) {
-		this(neutralWords, new SentimentWords(), name);
+	public Sentiment(Neutrals neutrals, String name) {
+		this(neutrals, new Valences(), name);
 	}
 
-	public Sentiment(SentimentWords sentimentWords, String name) {
-		this(new NeutralWords(), sentimentWords, name);
+	public Sentiment(Valences valences, String name) {
+		this(new Neutrals(), valences, name);
 	}
 
 	public Sentiment(String name) {
-		this(new NeutralWords(), name);
+		this(new Neutrals(), name);
 	}
 
 	public void learn(List<String> words) {
-		words = withoutNeutralWords(words);
-		sentimentWords.increment(words);
+		words = withoutNeutrals(words);
+		valences.increment(words);
 	}
 
 	public void unlearn(List<String> words) {
-		words = withoutNeutralWords(words);
-		sentimentWords.decrement(words);
+		words = withoutNeutrals(words);
+		valences.decrement(words);
 	}
 
-	public List<String> withoutNeutralWords(List<String> words) {
-		words.removeAll(neutralWords);
+	public List<String> withoutNeutrals(List<String> words) {
+		words.removeAll(neutrals.words());
 		return words;
 	}
 
 	public double analyzed(List<String> words) {
-		words = withoutNeutralWords(words);
+		words = withoutNeutrals(words);
 		double valenceSum = 0;
 		for (String s : words) {
-			if (sentimentWords.containsKey(s)) {
-				valenceSum += sentimentWords.get(s);
+			if (valences.values().containsKey(s)) {
+				valenceSum += valences.values().get(s);
 			}
 		}
-		return valenceSum / sentimentWords.timesLearned();
+		return valenceSum / valences.timesLearned();
 	}
 
 	public String name() {
@@ -66,12 +66,12 @@ public final class Sentiment {
 		return description;
 	}
 
-	public SentimentWords sentimentWords() {
-		return sentimentWords;
+	public Valences valences() {
+		return valences;
 	}
 
-	public NeutralWords neutralWords() {
-		return neutralWords;
+	public Neutrals neutrals() {
+		return neutrals;
 	}
 
 }
