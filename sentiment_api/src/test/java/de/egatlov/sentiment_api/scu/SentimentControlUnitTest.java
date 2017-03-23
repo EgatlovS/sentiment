@@ -9,36 +9,35 @@ import de.egatlov.sentiment_api.Sentiment;
 import de.egatlov.sentiment_api.SentimentControlUnit;
 import de.egatlov.sentiment_api.SentimentWords;
 
-public class SentimentControlUnitTest {
+public final class SentimentControlUnitTest {
 
 	@Test
 	public void scuCreationSuccess() {
 		SentimentControlUnit scu = new SentimentControlUnit(
-				new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d"),
-				new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d"));
+				new Sentiment(new NeutralWords(), new SentimentWords(), "name"),
+				new Sentiment(new NeutralWords(), new SentimentWords(), "name"));
 		assertThat(scu.sentiments().size()).isEqualTo(2);
 	}
 
 	@Test
 	public void analyzingDoesSomething() {
-		SentimentControlUnit scu = new SentimentControlUnit(
-				new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d"),
-				new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d"));
-		assertThat(scu.analyzed("Text to be analyzed")).isIn(scu.sentiments().get(0), scu.sentiments().get(1));
+		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
+		Sentiment sentiment2 = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
+		SentimentControlUnit scu = new SentimentControlUnit(sentiment, sentiment2);
+		assertThat(scu.analyzed("Text to be analyzed")).isIn(sentiment, sentiment2);
 	}
 
 	@Test
 	public void addsNewWordsInSentimentWordsIfAnalysisWon() {
-		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d");
+		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
 		SentimentControlUnit scu = new SentimentControlUnit(sentiment);
-
 		scu.analyzed("Text to be analyzed");
 		assertThat(sentiment.sentimentWords()).hasSize(4);
 	}
 
 	@Test
 	public void doesntAddNewWordsWhenInNeutralWordsIfAnalysisWon() {
-		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d");
+		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
 		SentimentControlUnit scu = new SentimentControlUnit(sentiment);
 
 		// add to neutral then it shouldnt add it
@@ -50,7 +49,7 @@ public class SentimentControlUnitTest {
 	@Test
 	public void incrementsTheWinnerAfterAnalyzing() {
 		// only one Analysis so it wins everytime
-		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d");
+		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
 		SentimentControlUnit scu = new SentimentControlUnit(sentiment);
 
 		scu.analyzed("Text to be analyzed");
@@ -61,7 +60,7 @@ public class SentimentControlUnitTest {
 	@Test
 	public void scuCanTeach() {
 		// only one Analysis so it wins everytime
-		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d");
+		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
 		SentimentControlUnit scu = new SentimentControlUnit(sentiment);
 
 		scu.analyzed("Text to be analyzed");
@@ -75,7 +74,7 @@ public class SentimentControlUnitTest {
 	@Test
 	public void scuCanUnTeach() {
 		// only one Analysis so it wins everytime
-		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d");
+		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
 		SentimentControlUnit scu = new SentimentControlUnit(sentiment);
 
 		scu.analyzed("Text to be analyzed");
@@ -90,7 +89,7 @@ public class SentimentControlUnitTest {
 	@Test
 	public void unteachRemovesKeySetFromSentimentWordsIfValueIsZero() {
 		// only one Analysis so it wins everytime
-		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name", "d");
+		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name");
 		SentimentControlUnit scu = new SentimentControlUnit(sentiment);
 
 		scu.analyzed("Text to be analyzed");

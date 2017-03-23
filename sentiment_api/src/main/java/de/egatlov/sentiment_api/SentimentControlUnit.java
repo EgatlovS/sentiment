@@ -2,27 +2,33 @@ package de.egatlov.sentiment_api;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
-public class SentimentControlUnit {
+public final class SentimentControlUnit {
 
-	private final List<Sentiment> sentiments;
+	private final Map<Sentiment, Double> sentiments;
 
 	public SentimentControlUnit(Sentiment... sentiments) {
-		this.sentiments = Arrays.asList(sentiments);
+		this.sentiments = new HashMap<Sentiment, Double>();
+		for (Sentiment sentiment : sentiments) {
+			this.sentiments.put(sentiment, 0.0);
+		}
 	}
 
-	public List<Sentiment> sentiments() {
+	public Map<Sentiment, Double> sentiments() {
 		return sentiments;
 	}
 
 	public Sentiment analyzed(String toBeAnalyzed) {
 		List<String> toAnalyze = new ArrayList<String>(Arrays.asList(toBeAnalyzed.split(" ")));
-		for (Sentiment sentiment : sentiments) {
-			sentiment.analyze(toAnalyze);
+		Set<Sentiment> keys = sentiments.keySet();
+		for (Sentiment sentiment : keys) {
+			sentiments.put(sentiment, sentiment.analyzed(toAnalyze));
 		}
-		Sentiment sentiment = Collections.max(sentiments, new SentimentComparator());
+		Sentiment sentiment = sentimentWithHighestValence();
 		teach(sentiment, toAnalyze);
 		return sentiment;
 	}
@@ -41,6 +47,16 @@ public class SentimentControlUnit {
 
 	public void unteach(Sentiment sentiment, List<String> toBeUnTeached) {
 		sentiment.unlearn(new ArrayList<String>(toBeUnTeached));
+	}
+
+	private Sentiment sentimentWithHighestValence() {
+		Map.Entry<Sentiment, Double> maxEntry = null;
+		for (Map.Entry<Sentiment, Double> entry : sentiments.entrySet()) {
+			if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
+				maxEntry = entry;
+			}
+		}
+		return maxEntry.getKey();
 	}
 
 }

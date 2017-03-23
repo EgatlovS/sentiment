@@ -4,6 +4,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.junit.Test;
 
@@ -33,8 +34,8 @@ public class SentimentTest {
 	public void analyzingReturnsOnlyPositivesOrZero() {
 		Sentiment sentiment = new Sentiment(new NeutralWords(), new SentimentWords(), "name of sentiment",
 				"description of sentiment");
-		sentiment.analyze(new ArrayList<String>(Arrays.asList("Text to be analyzed".split(" "))));
-		assertThat(sentiment.lastAnalyzingResult()).isGreaterThanOrEqualTo(0);
+		List<String> words = new ArrayList<String>(Arrays.asList("Text to be analyzed".split(" ")));
+		assertThat(sentiment.analyzed(words)).isGreaterThanOrEqualTo(0);
 	}
 
 }
