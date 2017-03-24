@@ -8,10 +8,6 @@ import java.util.List;
 
 import org.junit.Test;
 
-import de.egatlov.sentiment_api.Neutrals;
-import de.egatlov.sentiment_api.Sentiment;
-import de.egatlov.sentiment_api.Valences;
-
 public class SentimentTest {
 
 	@Test

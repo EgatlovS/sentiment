@@ -8,7 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import de.egatlov.sentiment_api.Valences;
+import de.egatlov.sentiment_api.sentiment.Valences;
 
 public class ValencesTest {
 
@@ -99,20 +99,6 @@ public class ValencesTest {
 
 		assertThat(valences.values().get("Word")).isEqualTo(1);
 		assertThat(valences.values().get("some")).isEqualTo(1);
-	}
-
-	@Test
-	public void decrementRemovesEntityWithZeroValence() {
-		HashMap<String, Integer> map = new HashMap<String, Integer>();
-		map.put("Word", 1);
-		map.put("some", 2);
-		Valences valences = new Valences(map, 2);
-		List<String> words = new ArrayList<String>();
-		words.add("Word");
-		valences.decrement(words);
-
-		assertThat(valences.values().get("Word")).isNull();
-		assertThat(valences.values().get("some")).isEqualTo(2);
 	}
 
 }

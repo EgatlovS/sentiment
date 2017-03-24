@@ -1,10 +1,11 @@
-package de.egatlov.sentiment_api;
+package de.egatlov.sentiment_api.sentiment;
 
 import java.io.InputStream;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,7 +52,6 @@ public final class Valences {
 				values.put(word, values.get(word) - 1);
 			}
 		}
-		destroyAllZeroKeySets();
 		if (timesLearned > 1) {
 			timesLearned--;
 		}
@@ -65,10 +65,15 @@ public final class Valences {
 		return values;
 	}
 
-	private void destroyAllZeroKeySets() {
-		if (values.containsValue(0)) {
-			values.values().removeAll(Collections.singleton(0));
+	public List<String> destroyedZeroKeySets() {
+		List<String> destroyedKeySets = new ArrayList<String>();
+		for (Entry<String, Integer> entry : values.entrySet()) {
+			if (entry.getValue() == 0) {
+				destroyedKeySets.add(entry.getKey());
+			}
 		}
+		values.keySet().removeAll(destroyedKeySets);
+		return destroyedKeySets;
 	}
 
 }

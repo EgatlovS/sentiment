@@ -4,10 +4,10 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 import org.junit.Test;
 
-import de.egatlov.sentiment_api.Neutrals;
-import de.egatlov.sentiment_api.Sentiment;
-import de.egatlov.sentiment_api.SentimentControlUnit;
-import de.egatlov.sentiment_api.Valences;
+import de.egatlov.sentiment_api.sentiment.Neutrals;
+import de.egatlov.sentiment_api.sentiment.Sentiment;
+import de.egatlov.sentiment_api.sentiment.SentimentControlUnit;
+import de.egatlov.sentiment_api.sentiment.Valences;
 
 public final class SentimentControlUnitTest {
 
@@ -40,7 +40,7 @@ public final class SentimentControlUnitTest {
 		SentimentControlUnit scu = new SentimentControlUnit(sentiment);
 
 		// add to neutral then it shouldnt add it
-		sentiment.neutrals().words().add("Text");
+		sentiment.neutrals().words().add("text");
 		scu.analyzed("Text to be analyzed");
 		assertThat(sentiment.valences().values()).hasSize(3);
 	}
@@ -53,7 +53,7 @@ public final class SentimentControlUnitTest {
 
 		scu.analyzed("Text to be analyzed");
 		Valences words = sentiment.valences();
-		assertThat(words.values().get("Text")).isEqualTo(1);
+		assertThat(words.values().get("text")).isEqualTo(1);
 	}
 
 	@Test
@@ -64,10 +64,10 @@ public final class SentimentControlUnitTest {
 
 		scu.analyzed("Text to be analyzed");
 		Valences words = sentiment.valences();
-		assertThat(words.values().get("Text")).isEqualTo(1);
+		assertThat(words.values().get("text")).isEqualTo(1);
 
 		scu.teach(sentiment, "Text to be analyzed");
-		assertThat(words.values().get("Text")).isEqualTo(2);
+		assertThat(words.values().get("text")).isEqualTo(2);
 	}
 
 	@Test
@@ -79,10 +79,10 @@ public final class SentimentControlUnitTest {
 		scu.analyzed("Text to be analyzed");
 		scu.teach(sentiment, "Text to be analyzed");
 		Valences words = sentiment.valences();
-		assertThat(words.values().get("Text")).isEqualTo(2);
+		assertThat(words.values().get("text")).isEqualTo(2);
 
 		scu.unteach(sentiment, "Text to be analyzed");
-		assertThat(words.values().get("Text")).isEqualTo(1);
+		assertThat(words.values().get("text")).isEqualTo(1);
 	}
 
 	@Test
@@ -93,10 +93,10 @@ public final class SentimentControlUnitTest {
 
 		scu.analyzed("Text to be analyzed");
 		Valences words = sentiment.valences();
-		assertThat(words.values().get("Text")).isEqualTo(1);
+		assertThat(words.values().get("text")).isEqualTo(1);
 
 		scu.unteach(sentiment, "Text to be analyzed");
-		assertThat(words.values()).doesNotContainKey("Text");
+		assertThat(words.values()).doesNotContainKey("text");
 	}
 
 }

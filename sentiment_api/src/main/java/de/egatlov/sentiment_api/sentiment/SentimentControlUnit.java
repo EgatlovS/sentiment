@@ -1,11 +1,14 @@
-package de.egatlov.sentiment_api;
+package de.egatlov.sentiment_api.sentiment;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import de.egatlov.sentiment_api.util.CleanText;
+import de.egatlov.sentiment_api.util.LowerCaseText;
+import de.egatlov.sentiment_api.util.SplittedText;
+import de.egatlov.sentiment_api.util.Text;
 
 public final class SentimentControlUnit {
 
@@ -23,30 +26,35 @@ public final class SentimentControlUnit {
 	}
 
 	public Sentiment analyzed(String toBeAnalyzed) {
-		List<String> toAnalyze = new ArrayList<String>(Arrays.asList(toBeAnalyzed.split(" ")));
+		List<String> toAnalyze = new SplittedText(new CleanText(new LowerCaseText(new Text(toBeAnalyzed))));
 		Set<Sentiment> keys = sentiments.keySet();
 		for (Sentiment sentiment : keys) {
 			sentiments.put(sentiment, sentiment.analyzed(toAnalyze));
 		}
 		Sentiment sentiment = sentimentWithHighestValence();
 		teach(sentiment, toAnalyze);
+		for (Sentiment s : keys) {
+			if (!s.equals(sentiment)) {
+				unteach(s, toAnalyze);
+			}
+		}
 		return sentiment;
 	}
 
 	public void teach(Sentiment sentiment, String toBeTeached) {
-		sentiment.learn(new ArrayList<String>(Arrays.asList(toBeTeached.split(" "))));
+		sentiment.learn(new SplittedText(new CleanText(new LowerCaseText(new Text(toBeTeached)))));
 	}
 
 	public void teach(Sentiment sentiment, List<String> toBeTeached) {
-		sentiment.learn(new ArrayList<String>(toBeTeached));
+		sentiment.learn(toBeTeached);
 	}
 
 	public void unteach(Sentiment sentiment, String toBeUnTeached) {
-		sentiment.unlearn(new ArrayList<String>(Arrays.asList(toBeUnTeached.split(" "))));
+		sentiment.unlearn(new SplittedText(new CleanText(new LowerCaseText(new Text(toBeUnTeached)))));
 	}
 
 	public void unteach(Sentiment sentiment, List<String> toBeUnTeached) {
-		sentiment.unlearn(new ArrayList<String>(toBeUnTeached));
+		sentiment.unlearn(toBeUnTeached);
 	}
 
 	private Sentiment sentimentWithHighestValence() {

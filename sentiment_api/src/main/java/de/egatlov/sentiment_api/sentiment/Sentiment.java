@@ -1,4 +1,4 @@
-package de.egatlov.sentiment_api;
+package de.egatlov.sentiment_api.sentiment;
 
 import java.util.List;
 
@@ -40,6 +40,7 @@ public final class Sentiment {
 	public void unlearn(List<String> words) {
 		words = withoutNeutrals(words);
 		valences.decrement(words);
+		neutrals.addOrIncrementCandidates(valences.destroyedZeroKeySets());
 	}
 
 	public List<String> withoutNeutrals(List<String> words) {
