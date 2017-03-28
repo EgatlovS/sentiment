@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXMasonryPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.egatlov.trainingtool.controller.MainController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="Project">
+            <items>
+                  <MenuItem fx:id="saveProjectBtn" mnemonicParsing="false" onAction="#saveProjectWindow" text="save..." />
+              <MenuItem fx:id="loadProjectBtn" mnemonicParsing="false" onAction="#loadProjectWindow" text="load..." />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Sentiment">
+            <items>
+              <MenuItem fx:id="createSentimentBtn" mnemonicParsing="false" onAction="#createSentimentWindow" text="create..." />
+              <MenuItem fx:id="saveSentimentBtn" mnemonicParsing="false" onAction="#saveSentimentWindow" text="save..." />
+                  <MenuItem fx:id="loadSentimentBtn" mnemonicParsing="false" onAction="#loadSentimentWindow" text="load..." />
+            </items>
+          </Menu>
+            <Menu fx:id="aboutBtn" mnemonicParsing="false" onAction="#aboutWindow" text="About" />
+        </menus>
+      </MenuBar>
+   </top>
+   <left>
+      <AnchorPane prefHeight="328.0" prefWidth="365.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="textToAnalyzeTA" prefHeight="308.0" prefWidth="338.0" promptText="Text to analyze / learn ..." AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
+            <ButtonBar layoutY="329.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="329.0">
+              <buttons>
+                  <JFXButton fx:id="protestBtn" onAction="#protestWindow" ripplerFill="RED" style="-fx-background-color: orange;" text="protest" />
+                  <JFXButton fx:id="analyzeBtn" onAction="#analyze" ripplerFill="RED" style="-fx-background-color: orange;" text="analyze/learn">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </JFXButton>
+              </buttons>
+            </ButtonBar>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <content>
+            <JFXMasonryPane fx:id="masonry" prefHeight="828.0" prefWidth="221.0" />
+         </content>
+      </ScrollPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="150.0" prefWidth="150.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.egatlov.trainingtool.controller.SentimentController">
+   <children>
+      <Label fx:id="sentimentNameLabel" alignment="CENTER" layoutX="6.0" prefHeight="50.0" prefWidth="113.0" style="-fx-background-color: white;" text="Sentimentname" textAlignment="CENTER" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="6.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="0.0" />
+      <Label fx:id="analyzingResultLabel" alignment="CENTER" layoutX="41.0" layoutY="44.0" prefHeight="62.0" prefWidth="69.0" style="-fx-background-color: white;" text="1.12" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="38.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="43.0">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="neutralsBtn" layoutX="10.0" layoutY="115.0" onAction="#neutralsWindow" ripplerFill="#8e3c25" style="-fx-background-color: orange;" text="neutrals" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="115.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="valencesBtn" layoutX="80.0" layoutY="115.0" onAction="#valencesWindow" ripplerFill="#8e3c25" style="-fx-background-color: orange;" text="valences" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="115.0">
+         <font>
+            <Font size="9.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="deleteBtn" layoutX="119.0" layoutY="13.0" onAction="#deleteSentiment" prefHeight="25.0" prefWidth="25.0" ripplerFill="RED" style="-fx-background-color: white;" text="X" AnchorPane.bottomAnchor="125.0" AnchorPane.leftAnchor="125.0" AnchorPane.rightAnchor="2.0" AnchorPane.topAnchor="2.0" />
+   </children>
+</AnchorPane>
