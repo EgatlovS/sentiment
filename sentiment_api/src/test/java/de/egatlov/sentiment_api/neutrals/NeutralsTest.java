@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import de.egatlov.sentiment_api.json.JsonNeutrals;
 import de.egatlov.sentiment_api.sentiment.Neutrals;
 
 public class NeutralsTest {
@@ -20,7 +21,7 @@ public class NeutralsTest {
 
 	@Test
 	public void creationSuccessWithPathToJson() throws Exception {
-		Neutrals neutrals = new Neutrals("/json/neutrals.json");
+		Neutrals neutrals = new JsonNeutrals("/json/neutrals.json").buildObject();
 		assertThat(neutrals.words()).hasSize(3);
 	}
 

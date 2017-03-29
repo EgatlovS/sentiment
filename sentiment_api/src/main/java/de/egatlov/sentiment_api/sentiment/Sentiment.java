@@ -1,13 +1,30 @@
 package de.egatlov.sentiment_api.sentiment;
 
+import java.util.ArrayList;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import de.egatlov.sentiment_api.json.Json;
 
 public final class Sentiment {
 
+	@JsonProperty
 	private final Valences valences;
+	@JsonProperty
 	private final Neutrals neutrals;
+	@JsonProperty
 	private final String name;
+	@JsonProperty
 	private final String description;
+
+	public Sentiment(Json<Sentiment> json) throws Exception {
+		Sentiment sentiment = json.buildObject();
+		this.valences = sentiment.valences();
+		this.neutrals = sentiment.neutrals();
+		this.name = sentiment.name();
+		this.description = sentiment.description();
+	}
 
 	public Sentiment(Neutrals neutrals, Valences valences, String name, String description) {
 		this.valences = valences;
@@ -33,25 +50,27 @@ public final class Sentiment {
 	}
 
 	public void learn(List<String> words) {
-		words = withoutNeutrals(words);
-		valences.increment(words);
+		List<String> toLearn = withoutNeutrals(words);
+		valences.increment(toLearn);
 	}
 
 	public void unlearn(List<String> words) {
-		words = withoutNeutrals(words);
-		valences.decrement(words);
+		List<String> toUnlearn = withoutNeutrals(words);
+		valences.decrement(toUnlearn);
 		neutrals.addOrIncrementCandidates(valences.destroyedZeroKeySets());
 	}
 
 	public List<String> withoutNeutrals(List<String> words) {
-		words.removeAll(neutrals.words());
-		return words;
+		List<String> withoutNeutrals = new ArrayList<>();
+		withoutNeutrals.addAll(words);
+		withoutNeutrals.removeAll(neutrals.words());
+		return withoutNeutrals;
 	}
 
 	public double analyzed(List<String> words) {
-		words = withoutNeutrals(words);
+		List<String> toAnalyze = withoutNeutrals(words);
 		double valenceSum = 0;
-		for (String s : words) {
+		for (String s : toAnalyze) {
 			if (valences.values().containsKey(s)) {
 				valenceSum += valences.values().get(s);
 			}

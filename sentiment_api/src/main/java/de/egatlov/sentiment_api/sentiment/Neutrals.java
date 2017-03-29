@@ -1,6 +1,5 @@
 package de.egatlov.sentiment_api.sentiment;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +7,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import de.egatlov.sentiment_api.json.Json;
 
 public class Neutrals {
 
@@ -17,14 +17,8 @@ public class Neutrals {
 	@JsonProperty
 	private final Map<String, Integer> candidates;
 
-	public Neutrals(String pathToJson) throws Exception {
-		InputStream inJson = Valences.class.getResourceAsStream(pathToJson);
-		Neutrals neutrals = null;
-		try {
-			neutrals = new ObjectMapper().readValue(inJson, Neutrals.class);
-		} catch (Exception e) {
-			throw new Exception("Couldnt initialize Neutrals", e.getCause());
-		}
+	public Neutrals(Json<Neutrals> json) throws Exception {
+		Neutrals neutrals = json.buildObject();
 		this.words = neutrals.words();
 		this.candidates = neutrals.candidates();
 	}

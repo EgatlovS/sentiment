@@ -1,6 +1,5 @@
 package de.egatlov.sentiment_api.sentiment;
 
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -8,7 +7,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.ObjectMapper;
+
+import de.egatlov.sentiment_api.json.Json;
 
 public final class Valences {
 
@@ -17,16 +17,10 @@ public final class Valences {
 	@JsonProperty
 	private final Map<String, Integer> values;
 
-	public Valences(String pathToJson) throws Exception {
-		InputStream inJson = Valences.class.getResourceAsStream(pathToJson);
-		Valences valences = null;
-		try {
-			valences = new ObjectMapper().readValue(inJson, Valences.class);
-		} catch (Exception e) {
-			throw new Exception("Couldnt initialize Valences", e.getCause());
-		}
+	public Valences(Json<Valences> json) throws Exception {
+		Valences valences = json.buildObject();
 		this.timesLearned = valences.timesLearned();
-		values = valences.values();
+		this.values = valences.values();
 	}
 
 	public Valences(Map<String, Integer> map, int timesLearned) {

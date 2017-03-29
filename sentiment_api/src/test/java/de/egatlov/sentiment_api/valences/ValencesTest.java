@@ -8,6 +8,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import de.egatlov.sentiment_api.json.JsonValences;
 import de.egatlov.sentiment_api.sentiment.Valences;
 
 public class ValencesTest {
@@ -21,7 +22,7 @@ public class ValencesTest {
 
 	@Test
 	public void creationSuccessWithPathToJson() throws Exception {
-		Valences valences = new Valences("/json/valences.json");
+		Valences valences = new JsonValences("/json/valences.json").buildObject();
 		assertThat(valences.values()).hasSize(3);
 		assertThat(valences.timesLearned()).isEqualTo(1);
 	}
