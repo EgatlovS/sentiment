@@ -17,8 +17,8 @@ public final class Valences {
 	@JsonProperty
 	private final Map<String, Integer> values;
 
-	public Valences(Json<Valences> json) throws Exception {
-		Valences valences = json.buildObject();
+	public Valences(Json json) throws Exception {
+		Valences valences = json.buildObject(Valences.class);
 		this.timesLearned = valences.timesLearned();
 		this.values = valences.values();
 	}

@@ -18,8 +18,8 @@ public final class Sentiment {
 	@JsonProperty
 	private final String description;
 
-	public Sentiment(Json<Sentiment> json) throws Exception {
-		Sentiment sentiment = json.buildObject();
+	public Sentiment(Json json) throws Exception {
+		Sentiment sentiment = json.buildObject(Sentiment.class);
 		this.valences = sentiment.valences();
 		this.neutrals = sentiment.neutrals();
 		this.name = sentiment.name();

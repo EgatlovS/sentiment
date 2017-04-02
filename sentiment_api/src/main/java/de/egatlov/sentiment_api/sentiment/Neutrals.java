@@ -17,8 +17,8 @@ public class Neutrals {
 	@JsonProperty
 	private final Map<String, Integer> candidates;
 
-	public Neutrals(Json<Neutrals> json) throws Exception {
-		Neutrals neutrals = json.buildObject();
+	public Neutrals(Json json) throws Exception {
+		Neutrals neutrals = json.buildObject(Neutrals.class);
 		this.words = neutrals.words();
 		this.candidates = neutrals.candidates();
 	}

@@ -19,8 +19,8 @@ public final class SentimentCU implements ControlUnit {
 	@JsonProperty
 	private final Map<Sentiment, Double> sentiments;
 
-	public SentimentCU(Json<ControlUnit> json) throws Exception {
-		ControlUnit cu = json.buildObject();
+	public SentimentCU(Json json) throws Exception {
+		ControlUnit cu = json.buildObject(SentimentCU.class);
 		this.sentiments = cu.sentiments();
 	}
 
