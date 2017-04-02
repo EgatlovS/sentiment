@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="450.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadProjectController">
+   <children>
+      <JFXTextField fx:id="pathToFileTF" focusColor="RED" labelFloat="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="310.0" promptText="Path to File.." unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="20.0" />
+      <JFXButton fx:id="browseBtn" layoutX="359.0" layoutY="17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#browse" prefHeight="30.0" prefWidth="80.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Browse..." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
+      <JFXButton fx:id="loadBtn" layoutX="350.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#load" prefHeight="30.0" prefWidth="80.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Load" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="65.0" />
+      <JFXButton fx:id="cancelBtn" layoutX="250.0" layoutY="65.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Cancel" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="65.0" />
+   </children>
+</AnchorPane>

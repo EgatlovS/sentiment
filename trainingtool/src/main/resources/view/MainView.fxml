@@ -41,11 +41,7 @@
             <ButtonBar layoutY="329.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="329.0">
               <buttons>
                   <JFXButton fx:id="protestBtn" onAction="#protestWindow" ripplerFill="RED" style="-fx-background-color: orange;" text="protest" />
-                  <JFXButton fx:id="analyzeBtn" onAction="#analyze" ripplerFill="RED" style="-fx-background-color: orange;" text="analyze/learn">
-                     <cursor>
-                        <Cursor fx:constant="DEFAULT" />
-                     </cursor>
-                  </JFXButton>
+                  <JFXButton fx:id="analyzeBtn" onAction="#analyze" ripplerFill="RED" style="-fx-background-color: orange;" text="analyze/learn"/>
               </buttons>
             </ButtonBar>
          </children>
