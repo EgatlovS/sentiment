@@ -14,13 +14,13 @@ import de.egatlov.sentiment_api.util.LowerCaseText;
 import de.egatlov.sentiment_api.util.SplittedText;
 import de.egatlov.sentiment_api.util.Text;
 
-public class SimpleSentimentCU implements ControlUnit {
+public final class SimpleSentimentCU implements ControlUnit {
 
 	@JsonProperty
 	private final Map<Sentiment, Double> sentiments;
 
 	public SimpleSentimentCU(Json json) throws Exception {
-		ControlUnit cu = json.buildObject(SimpleSentimentCU.class);
+		SimpleSentimentCU cu = json.buildObject(SimpleSentimentCU.class);
 		this.sentiments = cu.sentiments();
 	}
 

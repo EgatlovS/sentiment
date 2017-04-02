@@ -20,7 +20,7 @@ public final class SentimentCU implements ControlUnit {
 	private final Map<Sentiment, Double> sentiments;
 
 	public SentimentCU(Json json) throws Exception {
-		ControlUnit cu = json.buildObject(SentimentCU.class);
+		SentimentCU cu = json.buildObject(SentimentCU.class);
 		this.sentiments = cu.sentiments();
 	}
 

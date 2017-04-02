@@ -1,6 +1,6 @@
 package de.egatlov.sentiment_api.util;
 
-public class CleanText extends Text {
+public final class CleanText extends Text {
 
 	private final Text text;
 	

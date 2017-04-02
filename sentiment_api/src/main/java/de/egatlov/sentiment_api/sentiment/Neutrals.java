@@ -10,7 +10,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import de.egatlov.sentiment_api.json.Json;
 
-public class Neutrals {
+public final class Neutrals {
 
 	@JsonProperty
 	private final List<String> words;

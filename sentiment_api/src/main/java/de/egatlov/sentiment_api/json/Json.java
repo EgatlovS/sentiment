@@ -4,7 +4,7 @@ import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public class Json {
+public final class Json {
 
 	private final String pathToJson;
 

@@ -1,6 +1,6 @@
 package de.egatlov.sentiment_api.util;
 
-public class LowerCaseText extends Text {
+public final class LowerCaseText extends Text {
 
 	private final Text text;
 	
