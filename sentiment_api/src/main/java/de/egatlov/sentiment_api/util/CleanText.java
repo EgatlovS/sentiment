@@ -1,16 +1,16 @@
 package de.egatlov.sentiment_api.util;
 
-public final class CleanText extends Text {
+public final class CleanText implements HelpClass<String> {
 
-	private final Text text;
-	
-	public CleanText(Text text) {
-		this.text = text;
+	private final HelpClass<String> hc;
+
+	public CleanText(HelpClass<String> hc) {
+		this.hc = hc;
 	}
-	
+
 	@Override
-	public String toString() {
-		return text.toString().replaceAll("[^A-Za-z\\s]", "");
+	public String get() {
+		return hc.get().replaceAll("[^A-Za-z\\s]", "");
 	}
-	
+
 }

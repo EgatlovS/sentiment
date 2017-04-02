@@ -1,9 +1,24 @@
 package de.egatlov.sentiment_api.util;
 
-public class Text {
+/**
+ * Text.class
+ * 
+ * Text wraps a String so other help classes can just take it and make live a
+ * lot easier.
+ * 
+ * @author alex
+ */
+public class Text implements HelpClass<String> {
 
+	/**
+	 * The wrapped String
+	 */
 	private final String string;
 
+	/**
+	 * Create a clear Text. Note:</br>
+	 * It's just for extending purposes.
+	 */
 	public Text() {
 		this.string = "";
 	}
@@ -13,7 +28,7 @@ public class Text {
 	}
 
 	@Override
-	public String toString() {
+	public String get() {
 		return string;
 	}
 

@@ -12,7 +12,7 @@ import de.egatlov.sentiment_api.sentiment.Sentiment;
  * 
  * @author alex
  */
-public class Highest {
+public class Highest implements HelpClass<Sentiment> {
 
 	/**
 	 * Sentiments.</br>
