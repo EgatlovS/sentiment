@@ -16,8 +16,8 @@ import de.egatlov.sentiment_api.util.SplittedText;
 import de.egatlov.sentiment_api.util.Text;
 
 /**
- * SimpleSentimentCU.class
- * 
+ * SimpleSentimentCU.class</br>
+ * </br>
  * SimpleSentimentCU implements ControlUnit so it provides those declared
  * Methods.</br>
  * Note:</br>
@@ -26,7 +26,7 @@ import de.egatlov.sentiment_api.util.Text;
  * where u don't won't to have learning in Production and have already some
  * trained sentiments which are functional for your needs.
  * 
- * @author alex
+ * @author egatlov
  */
 public final class SimpleSentimentCU implements ControlUnit {
 

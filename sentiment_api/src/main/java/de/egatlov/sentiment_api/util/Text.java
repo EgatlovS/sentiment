@@ -1,12 +1,12 @@
 package de.egatlov.sentiment_api.util;
 
 /**
- * Text.class
- * 
+ * Text.class</br>
+ * </br>
  * Text wraps a String so other help classes can just take it and make live a
  * lot easier.
  * 
- * @author alex
+ * @author egatlov
  */
 public class Text implements HelpClass<String> {
 
@@ -16,17 +16,18 @@ public class Text implements HelpClass<String> {
 	private final String string;
 
 	/**
-	 * Create a clear Text. Note:</br>
-	 * It's just for extending purposes.
+	 * Create Text with the given String.
+	 * 
+	 * @param string
+	 *            - the string to be wrapped.
 	 */
-	public Text() {
-		this.string = "";
-	}
-
 	public Text(String string) {
 		this.string = string;
 	}
 
+	/**
+	 * @return Returns the wrapped String.
+	 */
 	@Override
 	public String get() {
 		return string;

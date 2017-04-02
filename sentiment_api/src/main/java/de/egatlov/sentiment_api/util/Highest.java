@@ -7,10 +7,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import de.egatlov.sentiment_api.sentiment.Sentiment;
 
 /**
+ * Highest.class</br>
+ * </br>
  * This class is made for searching in a Map with Key equals Sentiment and Value
  * equals last analysis result for the Sentiment with highest analysis result.
  * 
- * @author alex
+ * @author egatlov
  */
 public class Highest implements HelpClass<Sentiment> {
 

@@ -16,15 +16,15 @@ import de.egatlov.sentiment_api.util.SplittedText;
 import de.egatlov.sentiment_api.util.Text;
 
 /**
- * SentimentCU.class
- * 
+ * SentimentCU.class</br>
+ * </br>
  * SentimentCu implements the ControlUnit and provides additional methods to
  * learn an teach to sentiments. Note that this class learns on every analysis
  * made. So everytime u analyze some words, be aware that those words will be
  * teached to the matching sentiment and unteached to the all the otherones
  * automatically
  * 
- * @author alex
+ * @author egatlov
  */
 public final class SentimentCU implements ControlUnit {
 
