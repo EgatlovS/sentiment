@@ -10,20 +10,53 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import de.egatlov.sentiment_api.json.Json;
 import de.egatlov.sentiment_api.sentiment.Sentiment;
 import de.egatlov.sentiment_api.util.CleanText;
+import de.egatlov.sentiment_api.util.Highest;
 import de.egatlov.sentiment_api.util.LowerCaseText;
 import de.egatlov.sentiment_api.util.SplittedText;
 import de.egatlov.sentiment_api.util.Text;
 
+/**
+ * SimpleSentimentCU.class
+ * 
+ * SimpleSentimentCU implements ControlUnit so it provides those declared
+ * Methods.</br>
+ * Note:</br>
+ * It's a SIMPLE ControlUnit so it don't declare additional methods and it also
+ * doesn't learn those Sentiments everything. It should be used in the cases
+ * where u don't won't to have learning in Production and have already some
+ * trained sentiments which are functional for your needs.
+ * 
+ * @author alex
+ */
 public final class SimpleSentimentCU implements ControlUnit {
 
+	/**
+	 * Sentiments.</br>
+	 * Key: A Sentiment.</br>
+	 * Value: The result of the last analysis.
+	 */
 	@JsonProperty
 	private final Map<Sentiment, Double> sentiments;
 
+	/**
+	 * Create a ControlUnit out of Json.
+	 * 
+	 * @param json
+	 *            the Json representing Object.
+	 * @throws Exception
+	 *             - Exception is thrown, if object couldn't be build.
+	 */
 	public SimpleSentimentCU(Json json) throws Exception {
 		SimpleSentimentCU cu = json.buildObject(SimpleSentimentCU.class);
 		this.sentiments = cu.sentiments();
 	}
 
+	/**
+	 * Create a ControlUnit, and declare a bunch of sentiments to be tracked.
+	 * 
+	 * @param sentiments
+	 *            - the sentiments to be controlled.
+	 */
 	public SimpleSentimentCU(Sentiment... sentiments) {
 		this.sentiments = new HashMap<Sentiment, Double>();
 		for (Sentiment sentiment : sentiments) {
@@ -31,11 +64,17 @@ public final class SimpleSentimentCU implements ControlUnit {
 		}
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Map<Sentiment, Double> sentiments() {
 		return sentiments;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
 	@Override
 	public Sentiment analyzed(String toBeAnalyzed) {
 		List<String> toAnalyze = new SplittedText(new CleanText(new LowerCaseText(new Text(toBeAnalyzed))));
@@ -43,17 +82,7 @@ public final class SimpleSentimentCU implements ControlUnit {
 		for (Sentiment sentiment : keys) {
 			sentiments.put(sentiment, sentiment.analyzed(toAnalyze));
 		}
-		return sentimentWithHighestValence();
-	}
-
-	private Sentiment sentimentWithHighestValence() {
-		Map.Entry<Sentiment, Double> maxEntry = null;
-		for (Map.Entry<Sentiment, Double> entry : sentiments.entrySet()) {
-			if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
-				maxEntry = entry;
-			}
-		}
-		return maxEntry.getKey();
+		return new Highest(sentiments).get();
 	}
 
 }
