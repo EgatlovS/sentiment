@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXMasonryPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="358.0" prefWidth="592.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SaveSentimentController">
+   <left>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="162.0" prefWidth="392.0" BorderPane.alignment="CENTER">
+      	<children>
+      		<JFXTextField fx:id="saveToTF" focusColor="RED" labelFloat="true" layoutX="20.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="310.0" promptText="Save to.." unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="54.0" />
+      		<JFXButton fx:id="browseBtn" layoutX="350.0" layoutY="54.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#browse" prefHeight="30.0" prefWidth="80.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Browse..." AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="54.0" />
+      		<JFXButton fx:id="saveBtn" layoutX="350.0" layoutY="99.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#save" prefHeight="30.0" prefWidth="80.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Save" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="99.0" />
+      		<JFXButton fx:id="cancelBtn" layoutX="240.0" layoutY="99.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cancel" prefHeight="30.0" prefWidth="80.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Cancel" AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="99.0" />
+      	</children>
+      </AnchorPane>
+   </left>
+   <center>
+      <JFXMasonryPane prefHeight="358.0" prefWidth="214.0" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>
