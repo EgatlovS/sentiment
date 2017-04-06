@@ -12,6 +12,7 @@ public class Main extends Application {
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
 			Scene scene = new Scene(root);
+			primaryStage.setTitle("Sentiment Trainingtool (STT)");
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {

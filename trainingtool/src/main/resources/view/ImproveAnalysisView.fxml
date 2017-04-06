@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ImproveAnalysisController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="110.0" prefWidth="352.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.egatlov.trainingtool.controller.ImproveAnalysisController">
    <children>
       <JFXComboBox fx:id="chooseSentimentCB" focusColor="RED" labelFloat="true" layoutX="81.0" layoutY="52.0" promptText="Choose your expected outcome..." unFocusColor="ORANGE" visibleRowCount="5" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
       <JFXButton fx:id="improveBtn" layoutX="269.0" layoutY="75.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#improve" prefHeight="30.0" prefWidth="80.0" ripplerFill="RED" style="-fx-background-color: orange;" text="improve" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="65.0" />
