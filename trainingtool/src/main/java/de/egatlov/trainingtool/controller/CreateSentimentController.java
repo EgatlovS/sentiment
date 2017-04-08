@@ -39,7 +39,7 @@ public class CreateSentimentController {
 	void browseNeutrals(ActionEvent event) {
 		FileBrowser fileBrowser = new FileBrowser("Choose neutrals JSON-File");
 		try {
-			neutralsTF.setText(fileBrowser.path());
+			neutralsTF.setText(fileBrowser.chosenPath());
 		} catch (Exception e) {
 			// Do nothing because user just didn't pick path
 		}
@@ -49,7 +49,7 @@ public class CreateSentimentController {
 	void browseValences(ActionEvent event) {
 		FileBrowser fileBrowser = new FileBrowser("Choose neutrals JSON-File");
 		try {
-			valencesTF.setText(fileBrowser.path());
+			valencesTF.setText(fileBrowser.chosenPath());
 		} catch (Exception e) {
 			// Do nothing because user just didn't pick path
 		}

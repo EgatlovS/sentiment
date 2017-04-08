@@ -16,7 +16,7 @@ public class FileBrowser {
 		this.title = "Choose File...";
 	}
 
-	public String path() throws Exception {
+	public String chosenPath() throws Exception {
 		FileChooser fileChooser = new FileChooser();
 		// Extention filter
 		FileChooser.ExtensionFilter extentionFilter = new FileChooser.ExtensionFilter("Json files (*.json)", "*.json");
