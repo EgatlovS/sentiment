@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import de.egatlov.trainingtool.browser.FileBrowser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
@@ -36,12 +37,22 @@ public class CreateSentimentController {
 
 	@FXML
 	void browseNeutrals(ActionEvent event) {
-
+		FileBrowser fileBrowser = new FileBrowser("Choose neutrals JSON-File");
+		try {
+			neutralsTF.setText(fileBrowser.path());
+		} catch (Exception e) {
+			// Do nothing because user just didn't pick path
+		}
 	}
 
 	@FXML
 	void browseValences(ActionEvent event) {
-
+		FileBrowser fileBrowser = new FileBrowser("Choose neutrals JSON-File");
+		try {
+			valencesTF.setText(fileBrowser.path());
+		} catch (Exception e) {
+			// Do nothing because user just didn't pick path
+		}
 	}
 
 	@FXML

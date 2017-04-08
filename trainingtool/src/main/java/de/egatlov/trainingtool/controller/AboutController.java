@@ -2,7 +2,7 @@ package de.egatlov.trainingtool.controller;
 
 import com.jfoenix.controls.JFXButton;
 
-import de.egatlov.trainingtool.hyperlink.DefaultBrowser;
+import de.egatlov.trainingtool.browser.WebBrowser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
@@ -24,7 +24,7 @@ public class AboutController {
 
 	@FXML
 	void call(ActionEvent event) {
-		DefaultBrowser.INSTANCE().hostServices().showDocument("https://github.com/EgatlovS");
+		WebBrowser.INSTANCE().hostServices().showDocument("https://github.com/EgatlovS");
 	}
 
 }

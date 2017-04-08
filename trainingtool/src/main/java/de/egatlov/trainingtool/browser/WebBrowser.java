@@ -1,23 +1,23 @@
-package de.egatlov.trainingtool.hyperlink;
+package de.egatlov.trainingtool.browser;
 
 import javafx.application.HostServices;
 
-public class DefaultBrowser {
+public class WebBrowser {
 
-	private static DefaultBrowser INSTANCE;
+	private static WebBrowser INSTANCE;
 	private final HostServices hostServices;
 
-	private DefaultBrowser(HostServices hostServices) {
+	private WebBrowser(HostServices hostServices) {
 		this.hostServices = hostServices;
 	}
 
-	public static DefaultBrowser INSTANCE() {
+	public static WebBrowser INSTANCE() {
 		return INSTANCE;
 	}
 
 	public static void init(HostServices hostServices) {
 		if (INSTANCE == null) {
-			INSTANCE = new DefaultBrowser(hostServices);
+			INSTANCE = new WebBrowser(hostServices);
 		}
 	}
 

@@ -1,6 +1,6 @@
 package de.egatlov.trainingtool.main;
 
-import de.egatlov.trainingtool.hyperlink.DefaultBrowser;
+import de.egatlov.trainingtool.browser.WebBrowser;
 import de.egatlov.trainingtool.viewloader.View;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +24,7 @@ public class Main extends Application {
 	}
 
 	private void setupHyperlinkSupport() {
-		DefaultBrowser.init(getHostServices());
+		WebBrowser.init(getHostServices());
 	}
 
 	public static void main(String[] args) {
