@@ -2,7 +2,7 @@ package de.egatlov.trainingtool.browser;
 
 import javafx.application.HostServices;
 
-public class WebBrowser {
+public final class WebBrowser {
 
 	private static WebBrowser INSTANCE;
 	private final HostServices hostServices;

@@ -1,14 +1,12 @@
 package de.egatlov.trainingtool.controller;
 
-import java.io.File;
-
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 
+import de.egatlov.trainingtool.browser.DirectoryBrowser;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 
 public class SaveSentimentController {
@@ -30,19 +28,11 @@ public class SaveSentimentController {
 
 	@FXML
 	void browse(ActionEvent event) {
-		DirectoryChooser directoryChooser = new DirectoryChooser();
-		// Set to user directory or go to default if cannot access
-		String userDirectoryString = System.getProperty("user.home");
-		File userDirectory = new File(userDirectoryString);
-		if (!userDirectory.canRead()) {
-			userDirectory = new File("c:/");
-		}
-		directoryChooser.setInitialDirectory(userDirectory);
-		directoryChooser.setTitle("Choose save location...");
-		// Show open file dialog
-		File file = directoryChooser.showDialog(null);
-		if (file != null) {
-			saveToTF.setText(file.getPath());
+		DirectoryBrowser directoryBrowser = new DirectoryBrowser();
+		try {
+			saveToTF.setText(directoryBrowser.chosenPath());
+		} catch (Exception e) {
+			// Do nothing because user just didn't pick path
 		}
 	}
 

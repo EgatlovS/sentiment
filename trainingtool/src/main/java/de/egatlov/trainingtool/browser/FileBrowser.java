@@ -4,7 +4,7 @@ import java.io.File;
 
 import javafx.stage.FileChooser;
 
-public class FileBrowser {
+public final class FileBrowser {
 
 	private final String title;
 
