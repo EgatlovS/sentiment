@@ -4,7 +4,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXMasonryPane;
 
 import de.egatlov.trainingtool.viewloader.View;
-import de.egatlov.trainingtool.viewloader.ViewLoader;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Menu;
@@ -12,8 +11,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 
 public class MainController {
-
-	private ViewLoader viewLoader;
 
 	@FXML
 	private MenuItem saveProjectBtn;
@@ -45,10 +42,6 @@ public class MainController {
 	@FXML
 	private JFXMasonryPane masonry;
 
-	public MainController() {
-		this.viewLoader = new ViewLoader();
-	}
-
 	@FXML
 	void aboutWindow(ActionEvent event) {
 		// show window with ABOUT-CONTENT
@@ -56,32 +49,32 @@ public class MainController {
 
 	@FXML
 	void loadProjectWindow(ActionEvent event) throws Exception {
-		viewLoader.load("Load Project...", View.LOAD_PROJECT, false, true).show();
+		View.LOAD_PROJECT.show();
 	}
 
 	@FXML
 	void saveProjectWindow(ActionEvent event) throws Exception {
-		viewLoader.load("Save Project...", View.SAVE_PROJECT, false, true).show();
+		View.SAVE_PROJECT.show();
 	}
 
 	@FXML
 	void createSentimentWindow(ActionEvent event) throws Exception {
-		viewLoader.load("Create Sentiment...", View.CREATE_SENTIMENT, false, true).show();
+		View.CREATE_SENTIMENT.show();
 	}
 
 	@FXML
 	void loadSentimentWindow(ActionEvent event) throws Exception {
-		viewLoader.load("Load Sentiment...", View.LOAD_SENTIMENT, false, true).show();
+		View.LOAD_SENTIMENT.show();
 	}
 
 	@FXML
 	void saveSentimentWindow(ActionEvent event) throws Exception {
-		viewLoader.load("Save Sentiment...", View.SAVE_SENTIMENT, false, true).show();
+		View.SAVE_SENTIMENT.show();
 	}
 
 	@FXML
 	void protestWindow(ActionEvent event) throws Exception {
-		viewLoader.load("Improve Analysis...", View.IMPROVE_ANALYSIS, false, true).show();
+		View.IMPROVE_ANALYSIS.show();
 	}
 
 	@FXML

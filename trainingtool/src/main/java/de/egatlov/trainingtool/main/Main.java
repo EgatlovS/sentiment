@@ -1,5 +1,6 @@
 package de.egatlov.trainingtool.main;
 
+import de.egatlov.trainingtool.viewloader.View;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +11,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("/view/MainView.fxml"));
+			Parent root = FXMLLoader.load(getClass().getResource(View.MAIN.fileName()));
 			Scene scene = new Scene(root);
-			primaryStage.setTitle("Sentiment Trainingtool (STT)");
+			primaryStage.setTitle(View.MAIN.title());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {
