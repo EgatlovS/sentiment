@@ -1,5 +1,6 @@
 package de.egatlov.trainingtool.main;
 
+import de.egatlov.trainingtool.hyperlink.DefaultBrowser;
 import de.egatlov.trainingtool.viewloader.View;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
+		setupHyperlinkSupport();
 		try {
 			Parent root = FXMLLoader.load(getClass().getResource(View.MAIN.fileName()));
 			Scene scene = new Scene(root);
@@ -19,6 +21,10 @@ public class Main extends Application {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void setupHyperlinkSupport() {
+		DefaultBrowser.init(getHostServices());
 	}
 
 	public static void main(String[] args) {
