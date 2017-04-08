@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXMasonryPane?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -30,7 +29,10 @@
                   <MenuItem fx:id="loadSentimentBtn" mnemonicParsing="false" onAction="#loadSentimentWindow" text="load..." />
             </items>
           </Menu>
-            <Menu fx:id="aboutBtn" mnemonicParsing="false" onAction="#aboutWindow" text="About" />
+            <Menu mnemonicParsing="false" text="Information">
+               <items>
+                  <MenuItem fx:id="aboutBtn" mnemonicParsing="false" onAction="#aboutWindow" text="About" />
+               </items></Menu>
         </menus>
       </MenuBar>
    </top>
@@ -41,7 +43,7 @@
             <ButtonBar layoutY="329.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="329.0">
               <buttons>
                   <JFXButton fx:id="protestBtn" onAction="#protestWindow" ripplerFill="RED" style="-fx-background-color: orange;" text="protest" />
-                  <JFXButton fx:id="analyzeBtn" onAction="#analyze" ripplerFill="RED" style="-fx-background-color: orange;" text="analyze/learn"/>
+                  <JFXButton fx:id="analyzeBtn" onAction="#analyze" ripplerFill="RED" style="-fx-background-color: orange;" text="analyze/learn" />
               </buttons>
             </ButtonBar>
          </children>

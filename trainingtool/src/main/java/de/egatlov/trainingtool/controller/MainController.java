@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXMasonryPane;
 import de.egatlov.trainingtool.viewloader.View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 
@@ -28,7 +27,7 @@ public class MainController {
 	private MenuItem loadSentimentBtn;
 
 	@FXML
-	private Menu aboutBtn;
+	private MenuItem aboutBtn;
 
 	@FXML
 	private TextArea textToAnalyzeTA;
@@ -43,8 +42,8 @@ public class MainController {
 	private JFXMasonryPane masonry;
 
 	@FXML
-	void aboutWindow(ActionEvent event) {
-		// show window with ABOUT-CONTENT
+	void aboutWindow(ActionEvent event) throws Exception {
+		View.ABOUT.show();
 	}
 
 	@FXML

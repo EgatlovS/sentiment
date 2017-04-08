@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.egatlov.trainingtool.controller.AboutController">
+   <children>
+      <Label alignment="CENTER" layoutX="75.0" layoutY="14.0" prefHeight="88.0" prefWidth="478.0" text="Sentiment Trainingstool (STT)" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="254.0" layoutY="183.0" prefHeight="20.0" prefWidth="76.0" text="Version 1.0" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Hyperlink fx:id="hyperlink" alignment="CENTER" layoutX="240.0" layoutY="282.0" onAction="#call" text="Made by EgatlovS" AnchorPane.topAnchor="280.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Hyperlink>
+      <JFXButton fx:id="backBtn" layoutX="226.0" layoutY="321.0" onAction="#back" prefHeight="40.0" prefWidth="150.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Back" AnchorPane.topAnchor="321.0">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="145.0" fitWidth="182.0" layoutX="209.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="209.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="100.0">
+         <image>
+            <Image url="@../images/sttLogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

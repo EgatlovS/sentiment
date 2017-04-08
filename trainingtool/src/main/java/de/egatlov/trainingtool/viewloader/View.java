@@ -15,7 +15,8 @@ public enum View {
 	MAIN("MainView", "Sentiment Trainingtool (STT)", false, true), //
 	SAVE_PROJECT("SaveProjectView", "Save Project...", false, true), //
 	SAVE_SENTIMENT("SaveSentimentView", "Save Sentiment...", false, true), //
-	SENTIMENT("SentimentView", "Sentiment", false, true);
+	SENTIMENT("SentimentView", "Sentiment", false, true), //
+	ABOUT("AboutView", "About", false, true);
 
 	private String fileName;
 	private String title;
@@ -24,6 +25,9 @@ public enum View {
 
 	private View(String fileName, String title, boolean resizeable, boolean applicationModal) {
 		this.fileName = fileName;
+		this.title = title;
+		this.resizeable = resizeable;
+		this.applicationModal = applicationModal;
 	}
 
 	public void show() throws Exception {
