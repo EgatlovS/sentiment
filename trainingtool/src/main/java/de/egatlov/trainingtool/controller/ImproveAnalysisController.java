@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXComboBox;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
 public class ImproveAnalysisController {
 
@@ -15,11 +16,12 @@ public class ImproveAnalysisController {
 	private JFXButton improveBtn;
 
 	@FXML
-	private JFXButton canceBtn;
+	private JFXButton cancelBtn;
 
 	@FXML
 	void cancel(ActionEvent event) {
-
+		Stage stage = (Stage) cancelBtn.getScene().getWindow();
+		stage.close();
 	}
 
 	@FXML

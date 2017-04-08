@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
 public class LoadProjectController {
 
@@ -27,7 +28,8 @@ public class LoadProjectController {
 
 	@FXML
 	void cancel(ActionEvent event) {
-		//close window
+		Stage stage = (Stage) cancelBtn.getScene().getWindow();
+		stage.close();
 	}
 
 	@FXML
