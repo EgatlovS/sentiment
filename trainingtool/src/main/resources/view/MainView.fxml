@@ -40,7 +40,7 @@
          <children>
             <TextArea fx:id="textToAnalyzeTA" prefHeight="308.0" prefWidth="338.0" promptText="Text to analyze / learn ..." styleClass="main-text-area" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" />
             <JFXButton fx:id="protestBtn" layoutX="141.0" layoutY="337.0" onAction="#protestWindow" prefWidth="100.0" ripplerFill="YELLOW" text="protest" AnchorPane.leftAnchor="145.0" AnchorPane.topAnchor="335.0" />
-            <JFXButton fx:id="analyzeBtn" layoutX="254.0" layoutY="337.0" onAction="#analyze" prefWidth="100.0" ripplerFill="YELLOW" text="analyze/learn" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="335.0" />
+            <JFXButton fx:id="analyzeBtn" layoutX="254.0" layoutY="337.0" onAction="#analyze" prefWidth="100.0" ripplerFill="YELLOW" text="analyze" AnchorPane.leftAnchor="255.0" AnchorPane.topAnchor="335.0" />
          </children>
       </AnchorPane>
    </left>
