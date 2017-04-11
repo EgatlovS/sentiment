@@ -5,16 +5,15 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="415.0" prefWidth="621.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.111" fx:controller="de.egatlov.trainingtool.controller.CreateSentimentController">
-   <children>
-      <JFXTextField fx:id="nameTF" focusColor="RED" labelFloat="true" layoutX="14.0" layoutY="14.0" promptText="Name of Sentiment.." unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0" />
-      <JFXTextArea fx:id="descriptionTF" focusColor="RED" labelFloat="true" layoutX="20.0" layoutY="68.0" promptText="Description..." unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="68.0" />
-      <JFXTextField fx:id="neutralsTF" focusColor="RED" labelFloat="true" layoutX="20.0" layoutY="268.0" promptText="Neutrals" unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="268.0" />
-      <JFXButton fx:id="neutralsBrowseBtn" layoutX="520.0" layoutY="264.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#browseNeutrals" prefHeight="30.0" prefWidth="70.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Browse..." AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="264.0" />
-      <JFXTextField fx:id="valencesTF" focusColor="RED" labelFloat="true" layoutX="20.0" layoutY="312.0" promptText="Valences" unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="312.0" />
-      <JFXButton fx:id="valencesBrowseBtn" layoutX="520.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#browseValences" prefHeight="30.0" prefWidth="70.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Browse..." AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="308.0" />
-      <JFXButton fx:id="cancelBtn" layoutX="431.0" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cancel" prefHeight="30.0" prefWidth="70.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Cancel" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="364.0" />
-      <JFXButton fx:id="createBtn" layoutX="520.0" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#create" prefHeight="30.0" prefWidth="70.0" ripplerFill="RED" style="-fx-background-color: orange;" text="Create" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="364.0" />
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="385.0" prefWidth="621.0" styleClass="pane" stylesheets="@../css/application.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.egatlov.trainingtool.controller.CreateSentimentController">
+	<children>
+		<JFXTextField fx:id="nameTF" focusColor="WHITE" labelFloat="true" layoutX="14.0" layoutY="14.0" prefHeight="30.0" promptText="Name of Sentiment.." unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="25.0" />
+		<JFXTextArea fx:id="descriptionTF" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="68.0" prefHeight="100.0" prefWidth="581.0" promptText="Description..." unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="85.0" />
+		<JFXTextField fx:id="neutralsTF" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="268.0" prefHeight="30.0" promptText="Neutrals" unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="215.0" />
+		<JFXButton fx:id="neutralsBrowseBtn" layoutX="520.0" layoutY="264.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#browseNeutrals" prefHeight="30.0" prefWidth="100.0" ripplerFill="YELLOW" text="Browse..." AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="215.0" />
+		<JFXTextField fx:id="valencesTF" focusColor="WHITE" labelFloat="true" layoutX="20.0" layoutY="312.0" prefHeight="30.0" promptText="Valences" unFocusColor="ORANGE" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="275.0" />
+		<JFXButton fx:id="valencesBrowseBtn" layoutX="520.0" layoutY="308.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#browseValences" prefHeight="30.0" prefWidth="100.0" ripplerFill="YELLOW" text="Browse..." AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="275.0" />
+		<JFXButton fx:id="cancelBtn" layoutX="431.0" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#cancel" prefHeight="30.0" prefWidth="100.0" ripplerFill="YELLOW" text="Cancel" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="335.0" />
+		<JFXButton fx:id="createBtn" layoutX="520.0" layoutY="364.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#create" prefHeight="30.0" prefWidth="100.0" ripplerFill="YELLOW" text="Create" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="335.0" />
+	</children>
 </AnchorPane>

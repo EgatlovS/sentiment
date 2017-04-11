@@ -1,1 +1,58 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+.menu-button>*.label{
+	-fx-text-fill: white;
+	-fx-font-weight: bold;
+}
+
+.menu-bar>*.container>*.menu-button:hover {
+	-fx-background-color: darkgrey;
+}
+
+*.menu-bar{
+	-fx-background-color: #272b33;
+}
+
+.pane{
+	-fx-background-color: grey;
+}
+
+.main-text-area {
+	-fx-focus-color: black;
+	-fx-faint-focus-color: transparent;
+}
+
+.button{
+	-fx-background-color: orange;
+	-fx-font-weight: bold;
+}
+
+#masonry{
+	-fx-background-color: grey;
+}
+
+.hyperlink{
+	-fx-text-fill: orange;
+	-fx-font-weight: bold;
+	-fx-border-color: transparent;
+	-fx-font-size: 14.0px;
+}
+
+.text-area{
+	-fx-font-size: 14.0px;
+	-fx-text-fill: black;
+}
+
+.text-area *.content{
+	-fx-cursor: none;
+}
+
+.jfx-text-area{
+	-fx-font-size: 14.0px;
+	-fx-text-fill: WHITE;
+}
+
+.text-field{
+	-fx-cursor: none;
+	-fx-font-size: 14.0px;
+	-fx-text-fill: WHITE;
+}
