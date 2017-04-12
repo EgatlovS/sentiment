@@ -2,12 +2,12 @@ package de.egatlov.trainingtool.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXMasonryPane;
+import com.jfoenix.controls.JFXTextArea;
 
 import de.egatlov.trainingtool.viewloader.View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
 
 public class MainController {
 
@@ -30,7 +30,7 @@ public class MainController {
 	private MenuItem aboutBtn;
 
 	@FXML
-	private TextArea textToAnalyzeTA;
+	private JFXTextArea textToAnalyzeTA;
 
 	@FXML
 	private JFXButton protestBtn;

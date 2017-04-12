@@ -16,7 +16,9 @@ public enum View {
 	SAVE_PROJECT("SaveProjectView", "Save Project...", false, true), //
 	SAVE_SENTIMENT("SaveSentimentView", "Save Sentiment...", false, true), //
 	SENTIMENT("SentimentView", "Sentiment", false, true), //
-	ABOUT("AboutView", "About", false, true);
+	ABOUT("AboutView", "About", false, true),//
+	VALENCES("ValencesView", "Valences", false, true),//
+	NEUTRALS("NeutralsView", "Neutrals", false, true);
 
 	private String fileName;
 	private String title;
