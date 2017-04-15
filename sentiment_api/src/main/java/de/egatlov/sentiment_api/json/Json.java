@@ -1,5 +1,6 @@
 package de.egatlov.sentiment_api.json;
 
+import java.io.File;
 import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -44,6 +45,15 @@ public final class Json {
 			throw new Exception("Couldnt create Object", e.getCause());
 		}
 		return object;
+	}
+
+	public void writeAsJson(Object object) throws Exception {
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			mapper.writeValue(new File(pathToJson), object);
+		} catch (Exception e){
+			throw new Exception("Couldn't write Object", e.getCause());
+		}
 	}
 
 }
