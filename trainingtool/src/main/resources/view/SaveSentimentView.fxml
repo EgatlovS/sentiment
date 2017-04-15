@@ -32,7 +32,7 @@
 			minWidth="-Infinity" onAction="#cancel" prefHeight="30.0" prefWidth="100.0"
 			ripplerFill="YELLOW" text="Cancel" AnchorPane.rightAnchor="130.0"
 			AnchorPane.topAnchor="117.0" />
-		<JFXComboBox fx:id="choseSentimentCB" focusColor="WHITE"
+		<JFXComboBox fx:id="chooseSentimentCB" focusColor="WHITE"
 			labelFloat="true" layoutX="20.0" layoutY="21.0" promptText="Choose Sentiment..."
 			unFocusColor="ORANGE" visibleRowCount="5" AnchorPane.leftAnchor="20.0"
 			AnchorPane.rightAnchor="130.0" AnchorPane.topAnchor="20.0" />

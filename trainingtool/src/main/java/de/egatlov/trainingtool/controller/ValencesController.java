@@ -15,6 +15,10 @@ public class ValencesController {
 	@FXML
 	private JFXButton backBtn;
 
+	public void initialize() {
+		// TODO init TA
+	}
+
 	@FXML
 	void back(ActionEvent event) {
 		Stage stage = (Stage) backBtn.getScene().getWindow();

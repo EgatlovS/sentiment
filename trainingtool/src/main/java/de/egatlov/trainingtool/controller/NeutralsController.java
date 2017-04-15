@@ -15,6 +15,10 @@ public class NeutralsController {
 	@FXML
 	private JFXButton backBtn;
 
+	public void initialize() {
+		// TODO fill TA
+	}
+
 	@FXML
 	void back(ActionEvent event) {
 		Stage stage = (Stage) backBtn.getScene().getWindow();

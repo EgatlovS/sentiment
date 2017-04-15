@@ -3,6 +3,7 @@ package de.egatlov.trainingtool.viewloader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -16,8 +17,8 @@ public enum View {
 	SAVE_PROJECT("SaveProjectView", "Save Project...", false, true), //
 	SAVE_SENTIMENT("SaveSentimentView", "Save Sentiment...", false, true), //
 	SENTIMENT("SentimentView", "Sentiment", false, true), //
-	ABOUT("AboutView", "About", false, true),//
-	VALENCES("ValencesView", "Valences", false, true),//
+	ABOUT("AboutView", "About", false, true), //
+	VALENCES("ValencesView", "Valences", false, true), //
 	NEUTRALS("NeutralsView", "Neutrals", false, true);
 
 	private String fileName;
@@ -46,6 +47,16 @@ public enum View {
 			stage.show();
 		} catch (Exception e) {
 			throw new Exception("Couldn't load view", e);
+		}
+	}
+
+	public Pane pane() throws Exception {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fileName()));
+			Pane pane = (Pane) fxmlLoader.load();
+			return pane;
+		} catch (Exception e) {
+			throw new Exception("Couldn't create pane", e);
 		}
 	}
 

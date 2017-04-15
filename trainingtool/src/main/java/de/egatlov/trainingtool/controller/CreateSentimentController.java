@@ -4,7 +4,12 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 
+import de.egatlov.sentiment_api.json.Json;
+import de.egatlov.sentiment_api.sentiment.Neutrals;
+import de.egatlov.sentiment_api.sentiment.Sentiment;
+import de.egatlov.sentiment_api.sentiment.Valences;
 import de.egatlov.trainingtool.browser.FileBrowser;
+import de.egatlov.trainingtool.data.ApplicationData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
@@ -62,8 +67,33 @@ public class CreateSentimentController {
 	}
 
 	@FXML
-	void create(ActionEvent event) {
+	void create(ActionEvent event) throws Exception {
+		// create sentiment
+		Sentiment sentiment = createSentiment(); // TODO catch exception and
+													// show window json invalid
+													// message
+		// update sentimentcu
+		ApplicationData.get().getControlUnit().sentiments().put(sentiment, 0.0);
+		// update masonry
+		ApplicationData.get().getMainController().update();
+		// close window
+		cancel(event);
+	}
 
+	private Sentiment createSentiment() throws Exception {
+		Neutrals neutrals;
+		if (neutralsTF.getText() != null && !neutralsTF.getText().isEmpty()) {
+			neutrals = new Neutrals(new Json(neutralsTF.getText()));
+		} else {
+			neutrals = new Neutrals();
+		}
+		Valences valences;
+		if (valencesTF.getText() != null && !valencesTF.getText().isEmpty()) {
+			valences = new Valences(new Json(valencesTF.getText()));
+		} else {
+			valences = new Valences();
+		}
+		return new Sentiment(neutrals, valences, nameTF.getText(), descriptionTF.getText());
 	}
 
 }

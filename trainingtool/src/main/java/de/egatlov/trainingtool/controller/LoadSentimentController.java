@@ -3,7 +3,9 @@ package de.egatlov.trainingtool.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import de.egatlov.sentiment_api.sentiment.Sentiment;
 import de.egatlov.trainingtool.browser.FileBrowser;
+import de.egatlov.trainingtool.data.ApplicationData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
@@ -40,7 +42,9 @@ public class LoadSentimentController {
 
 	@FXML
 	void load(ActionEvent event) {
-
+		// TODO open window with text unsaved stuff could be deleted...
+		ApplicationData.get().getControlUnit().sentiments().put(new Sentiment(pathToFileTF.getText()), 0.0);
+		cancel(event);
 	}
 
 }

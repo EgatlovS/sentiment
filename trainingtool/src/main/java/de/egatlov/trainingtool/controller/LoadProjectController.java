@@ -3,7 +3,10 @@ package de.egatlov.trainingtool.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import de.egatlov.sentiment_api.json.Json;
+import de.egatlov.sentiment_api.sentiment.control.SentimentCU;
 import de.egatlov.trainingtool.browser.FileBrowser;
+import de.egatlov.trainingtool.data.ApplicationData;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
@@ -39,9 +42,10 @@ public class LoadProjectController {
 	}
 
 	@FXML
-	void load(ActionEvent event) {
-		// load project from json file given in label
-		// close window
+	void load(ActionEvent event) throws Exception {
+		// TODO open window with text unsaved stuff could be deleted...
+		ApplicationData.get().setControlUnit(new SentimentCU(new Json(pathToFileTF.getText())));
+		cancel(event);
 	}
 
 }

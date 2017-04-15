@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.controls.JFXTextArea;
 
+import de.egatlov.trainingtool.data.ApplicationData;
 import de.egatlov.trainingtool.viewloader.View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +40,11 @@ public class MainController {
 	private JFXButton analyzeBtn;
 
 	@FXML
-	private JFXMasonryPane masonry;
+	JFXMasonryPane masonry;
+
+	public void initialize() {
+		ApplicationData.get().setMainController(this);
+	}
 
 	@FXML
 	void aboutWindow(ActionEvent event) throws Exception {
@@ -79,6 +84,10 @@ public class MainController {
 	@FXML
 	void analyze(ActionEvent event) {
 		// analyze the text in all sentiments and change them
+	}
+
+	public void update() throws Exception {
+		masonry.getChildren().add(View.SENTIMENT.pane());
 	}
 
 }
