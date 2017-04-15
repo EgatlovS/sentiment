@@ -3,6 +3,7 @@ package de.egatlov.trainingtool.controller;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
+import de.egatlov.sentiment_api.json.Json;
 import de.egatlov.sentiment_api.sentiment.Sentiment;
 import de.egatlov.trainingtool.browser.FileBrowser;
 import de.egatlov.trainingtool.data.ApplicationData;
@@ -41,9 +42,11 @@ public class LoadSentimentController {
 	}
 
 	@FXML
-	void load(ActionEvent event) {
+	void load(ActionEvent event) throws Exception {
+		// TODO fix json so it can read and write nested objects
 		// TODO open window with text unsaved stuff could be deleted...
-		ApplicationData.get().getControlUnit().sentiments().put(new Sentiment(pathToFileTF.getText()), 0.0);
+		ApplicationData.get().getControlUnit().sentiments().put(new Sentiment(new Json(pathToFileTF.getText())), 0.0);
+		ApplicationData.get().getMainController().update();
 		cancel(event);
 	}
 

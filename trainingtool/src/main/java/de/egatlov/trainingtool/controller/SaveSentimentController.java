@@ -1,11 +1,13 @@
 package de.egatlov.trainingtool.controller;
 
 import java.util.Map;
+import java.util.Set;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 
+import de.egatlov.sentiment_api.json.Json;
 import de.egatlov.sentiment_api.sentiment.Sentiment;
 import de.egatlov.trainingtool.browser.DirectoryBrowser;
 import de.egatlov.trainingtool.data.ApplicationData;
@@ -58,8 +60,17 @@ public class SaveSentimentController {
 	}
 
 	@FXML
-	void save(ActionEvent event) {
-
+	void save(ActionEvent event) throws Exception {
+		// TODO catch exception and tell user that it couldnt be saved
+		Sentiment toSave;
+		Set<Sentiment> sentiments = ApplicationData.get().getControlUnit().sentiments().keySet();
+		for (Sentiment sentiment : sentiments) {
+			if (sentiment.name().equals(chooseSentimentCB.getValue())) {
+				toSave = sentiment;
+				new Json(saveToTF.getText() + "/" + chooseSentimentCB.getValue() + ".json").write(toSave);
+				break;
+			}
+		}
 	}
 
 }

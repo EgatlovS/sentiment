@@ -45,6 +45,8 @@ public class LoadProjectController {
 	void load(ActionEvent event) throws Exception {
 		// TODO open window with text unsaved stuff could be deleted...
 		ApplicationData.get().setControlUnit(new SentimentCU(new Json(pathToFileTF.getText())));
+		ApplicationData.get().getMainController().masonry.getChildren().clear();
+		ApplicationData.get().getMainController().update();
 		cancel(event);
 	}
 

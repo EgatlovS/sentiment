@@ -47,7 +47,7 @@ public final class Json {
 		return object;
 	}
 
-	public void writeAsJson(Object object) throws Exception {
+	public void write(Object object) throws Exception {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			mapper.writeValue(new File(pathToJson), object);

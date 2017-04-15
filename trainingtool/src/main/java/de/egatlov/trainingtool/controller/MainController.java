@@ -83,7 +83,8 @@ public class MainController {
 
 	@FXML
 	void analyze(ActionEvent event) {
-		// analyze the text in all sentiments and change them
+		ApplicationData.get().getControlUnit().analyzed(textToAnalyzeTA.getText());
+		ApplicationData.get().updateSentiments();
 	}
 
 	public void update() throws Exception {
