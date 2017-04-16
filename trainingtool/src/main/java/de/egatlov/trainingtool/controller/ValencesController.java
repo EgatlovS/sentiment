@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
-public class ValencesController {
+public final class ValencesController {
 
 	@FXML
 	private JFXTextArea valencesTA;

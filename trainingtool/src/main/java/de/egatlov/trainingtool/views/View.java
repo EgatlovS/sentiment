@@ -1,4 +1,4 @@
-package de.egatlov.trainingtool.viewloader;
+package de.egatlov.trainingtool.views;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -7,26 +7,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-public enum View {
-
-	CREATE_SENTIMENT("CreateSentimentView", "Create Sentiment...", false, true), //
-	IMPROVE_ANALYSIS("ImproveAnalysisView", "Improve Analysis...", false, true), //
-	LOAD_PROJECT("LoadProjectView", "Load Project...", false, true), //
-	LOAD_SENTIMENT("LoadSentimentView", "Load Sentiment...", false, true), //
-	MAIN("MainView", "Sentiment Trainingtool (STT)", false, true), //
-	SAVE_PROJECT("SaveProjectView", "Save Project...", false, true), //
-	SAVE_SENTIMENT("SaveSentimentView", "Save Sentiment...", false, true), //
-	SENTIMENT("SentimentView", "Sentiment", false, true), //
-	ABOUT("AboutView", "About", false, true), //
-	VALENCES("ValencesView", "Valences", false, true), //
-	NEUTRALS("NeutralsView", "Neutrals", false, true);
+public abstract class View {
 
 	private String fileName;
 	private String title;
 	private boolean resizeable;
 	private boolean applicationModal;
 
-	private View(String fileName, String title, boolean resizeable, boolean applicationModal) {
+	public View(String fileName, String title, boolean resizeable, boolean applicationModal) {
 		this.fileName = fileName;
 		this.title = title;
 		this.resizeable = resizeable;

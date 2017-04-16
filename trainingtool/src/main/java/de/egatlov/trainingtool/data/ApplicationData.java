@@ -1,21 +1,35 @@
 package de.egatlov.trainingtool.data;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-
-import de.egatlov.sentiment_api.sentiment.Sentiment;
 import de.egatlov.sentiment_api.sentiment.control.SentimentCU;
-import de.egatlov.trainingtool.controller.MainController;
-import de.egatlov.trainingtool.controller.SentimentController;
+import de.egatlov.trainingtool.views.AboutView;
+import de.egatlov.trainingtool.views.CreateSentimentView;
+import de.egatlov.trainingtool.views.ImproveAnalysisView;
+import de.egatlov.trainingtool.views.LoadProjectView;
+import de.egatlov.trainingtool.views.LoadSentimentView;
+import de.egatlov.trainingtool.views.MainView;
+import de.egatlov.trainingtool.views.NeutralsView;
+import de.egatlov.trainingtool.views.SaveProjectView;
+import de.egatlov.trainingtool.views.SaveSentimentView;
+import de.egatlov.trainingtool.views.SentimentView;
+import de.egatlov.trainingtool.views.ValencesView;
 
 public final class ApplicationData {
 
 	private static ApplicationData DATA;
+	//Views
+	private CreateSentimentView createSentimentView = new CreateSentimentView();
+	private ImproveAnalysisView improveAnalysisView = new ImproveAnalysisView();
+	private LoadProjectView loadProjectView = new LoadProjectView();
+	private LoadSentimentView loadSentimentView = new LoadSentimentView();
+	private MainView mainView = new MainView();
+	private SaveProjectView saveProjectView = new SaveProjectView();
+	private SaveSentimentView saveSentimentView = new SaveSentimentView();
+	private SentimentView sentimentsView = new SentimentView();
+	private AboutView aboutView = new AboutView();
+	private ValencesView valencesView = new ValencesView();
+	private NeutralsView neutralsView = new NeutralsView();
+	//SentimentControlUnit
 	private SentimentCU controlUnit;
-	private MainController mainController;
-	private List<SentimentController> sentimentController;
 
 	private ApplicationData() {
 	}
@@ -38,32 +52,48 @@ public final class ApplicationData {
 		this.controlUnit = controlUnit;
 	}
 
-	public MainController getMainController() {
-		if (mainController == null) {
-			return new MainController();
-		}
-		return mainController;
+	public CreateSentimentView createSentimentView() {
+		return createSentimentView;
 	}
 
-	public void setMainController(MainController mainController) {
-		this.mainController = mainController;
+	public ImproveAnalysisView improveAnalysisView() {
+		return improveAnalysisView;
 	}
 
-	public void setSentimentController(SentimentController controller) {
-		if (sentimentController == null) {
-			sentimentController = new ArrayList<>();
-		}
-		sentimentController.add(controller);
-		updateSentiments();
+	public LoadProjectView loadProjectView() {
+		return loadProjectView;
 	}
 
-	public void updateSentiments() {
-		Map<Sentiment, Double> sentiments = controlUnit.sentiments();
-		int counter = 0;
-		for (Entry<Sentiment, Double> entry : sentiments.entrySet()) {
-			sentimentController.get(counter).update(entry.getKey().name(), entry.getValue());
-			counter++;
-		}
+	public LoadSentimentView loadSentimentView() {
+		return loadSentimentView;
+	}
+
+	public MainView mainView() {
+		return mainView;
+	}
+
+	public SaveProjectView saveProjectView() {
+		return saveProjectView;
+	}
+
+	public SaveSentimentView saveSentimentView() {
+		return saveSentimentView;
+	}
+
+	public SentimentView sentimentsView() {
+		return sentimentsView;
+	}
+
+	public AboutView aboutView() {
+		return aboutView;
+	}
+
+	public ValencesView valencesView() {
+		return valencesView;
+	}
+
+	public NeutralsView neutralsView() {
+		return neutralsView;
 	}
 
 }

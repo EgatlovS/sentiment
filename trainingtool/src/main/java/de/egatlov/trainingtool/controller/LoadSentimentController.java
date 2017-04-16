@@ -11,7 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
-public class LoadSentimentController {
+public final class LoadSentimentController {
 
 	@FXML
 	private JFXTextField pathToFileTF;
@@ -46,7 +46,8 @@ public class LoadSentimentController {
 		// TODO fix json so it can read and write nested objects
 		// TODO open window with text unsaved stuff could be deleted...
 		ApplicationData.get().getControlUnit().sentiments().put(new Sentiment(new Json(pathToFileTF.getText())), 0.0);
-		ApplicationData.get().getMainController().update();
+		// update masonry
+		ApplicationData.get().mainView().addSentimentEvent();
 		cancel(event);
 	}
 

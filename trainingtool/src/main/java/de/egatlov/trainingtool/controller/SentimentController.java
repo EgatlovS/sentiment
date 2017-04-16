@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
-public class SentimentController {
+public final class SentimentController {
 
 	@FXML
 	private Label sentimentNameLabel;
@@ -25,7 +25,7 @@ public class SentimentController {
 	private JFXButton deleteBtn;
 
 	public void initialize() {
-		ApplicationData.get().setSentimentController(this);
+		ApplicationData.get().sentimentsView().setSentimentController(this);
 	}
 
 	@FXML
@@ -44,9 +44,11 @@ public class SentimentController {
 		// open window which displays valences and the times learned
 	}
 
-	public void update(String name, Double value) {
-		sentimentNameLabel.setText(name);
-		analyzingResultLabel.setText(String.valueOf(value));
+	public Label sentimentNameLabel() {
+		return sentimentNameLabel;
 	}
 
+	public Label analyzingResultLabel() {
+		return analyzingResultLabel;
+	}
 }

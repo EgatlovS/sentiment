@@ -1,7 +1,7 @@
 package de.egatlov.trainingtool.main;
 
 import de.egatlov.trainingtool.browser.WebBrowser;
-import de.egatlov.trainingtool.viewloader.View;
+import de.egatlov.trainingtool.data.ApplicationData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,9 +13,9 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		setupHyperlinkSupport();
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource(View.MAIN.fileName()));
+			Parent root = FXMLLoader.load(getClass().getResource(ApplicationData.get().mainView().fileName()));
 			Scene scene = new Scene(root);
-			primaryStage.setTitle(View.MAIN.title());
+			primaryStage.setTitle(ApplicationData.get().mainView().title());
 			primaryStage.setScene(scene);
 			primaryStage.show();
 		} catch (Exception e) {

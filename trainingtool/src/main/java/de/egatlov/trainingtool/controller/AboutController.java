@@ -8,7 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 
-public class AboutController {
+public final class AboutController {
 
 	@FXML
 	private Hyperlink hyperlink;

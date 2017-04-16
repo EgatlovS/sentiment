@@ -5,12 +5,12 @@ import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.controls.JFXTextArea;
 
 import de.egatlov.trainingtool.data.ApplicationData;
-import de.egatlov.trainingtool.viewloader.View;
+import de.egatlov.trainingtool.views.View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 
-public class MainController {
+public final class MainController {
 
 	@FXML
 	private MenuItem saveProjectBtn;
@@ -40,55 +40,54 @@ public class MainController {
 	private JFXButton analyzeBtn;
 
 	@FXML
-	JFXMasonryPane masonry;
+	private JFXMasonryPane masonry;
 
 	public void initialize() {
-		ApplicationData.get().setMainController(this);
+		ApplicationData.get().mainView().setMainController(this);
 	}
 
 	@FXML
 	void aboutWindow(ActionEvent event) throws Exception {
-		View.ABOUT.show();
+		ApplicationData.get().aboutView().show();
 	}
 
 	@FXML
 	void loadProjectWindow(ActionEvent event) throws Exception {
-		View.LOAD_PROJECT.show();
+		ApplicationData.get().loadProjectView().show();
 	}
 
 	@FXML
 	void saveProjectWindow(ActionEvent event) throws Exception {
-		View.SAVE_PROJECT.show();
+		ApplicationData.get().saveProjectView().show();
 	}
 
 	@FXML
 	void createSentimentWindow(ActionEvent event) throws Exception {
-		View.CREATE_SENTIMENT.show();
+		ApplicationData.get().createSentimentView().show();
 	}
 
 	@FXML
 	void loadSentimentWindow(ActionEvent event) throws Exception {
-		View.LOAD_SENTIMENT.show();
+		ApplicationData.get().loadSentimentView().show();
 	}
 
 	@FXML
 	void saveSentimentWindow(ActionEvent event) throws Exception {
-		View.SAVE_SENTIMENT.show();
+		ApplicationData.get().saveSentimentView().show();
 	}
 
 	@FXML
 	void protestWindow(ActionEvent event) throws Exception {
-		View.IMPROVE_ANALYSIS.show();
+		ApplicationData.get().improveAnalysisView().show();
 	}
 
 	@FXML
 	void analyze(ActionEvent event) {
 		ApplicationData.get().getControlUnit().analyzed(textToAnalyzeTA.getText());
-		ApplicationData.get().updateSentiments();
+		ApplicationData.get().sentimentsView().updateSentiments();
 	}
 
-	public void update() throws Exception {
-		masonry.getChildren().add(View.SENTIMENT.pane());
+	public JFXMasonryPane masonry() {
+		return masonry;
 	}
-
 }

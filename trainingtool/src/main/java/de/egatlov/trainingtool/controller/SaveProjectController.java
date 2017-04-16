@@ -10,7 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
-public class SaveProjectController {
+public final class SaveProjectController {
 
 	@FXML
 	private JFXTextField saveToTF;

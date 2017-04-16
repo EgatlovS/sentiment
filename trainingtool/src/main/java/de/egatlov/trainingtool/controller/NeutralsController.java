@@ -7,7 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
-public class NeutralsController {
+public final class NeutralsController {
 
 	@FXML
 	private JFXTextArea neutralsTA;

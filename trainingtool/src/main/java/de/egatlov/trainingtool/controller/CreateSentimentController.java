@@ -14,7 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
 
-public class CreateSentimentController {
+public final class CreateSentimentController {
 
 	@FXML
 	private JFXTextField nameTF;
@@ -75,7 +75,7 @@ public class CreateSentimentController {
 		// update sentimentcu
 		ApplicationData.get().getControlUnit().sentiments().put(sentiment, 0.0);
 		// update masonry
-		ApplicationData.get().getMainController().update();
+		ApplicationData.get().mainView().addSentimentEvent();
 		// close window
 		cancel(event);
 	}
