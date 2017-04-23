@@ -71,6 +71,7 @@ public final class SaveSentimentController {
 				break;
 			}
 		}
+		cancel(event);
 	}
 
 }

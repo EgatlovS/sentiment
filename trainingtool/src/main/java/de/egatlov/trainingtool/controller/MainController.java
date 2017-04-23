@@ -90,4 +90,5 @@ public final class MainController {
 	public JFXMasonryPane masonry() {
 		return masonry;
 	}
+
 }

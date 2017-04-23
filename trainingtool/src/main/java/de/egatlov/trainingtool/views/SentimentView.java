@@ -31,9 +31,9 @@ public final class SentimentView extends View {
 		Map<Sentiment, Double> sentiments = ApplicationData.get().getControlUnit().sentiments();
 		int counter = 0;
 		for (Entry<Sentiment, Double> entry : sentiments.entrySet()) {
-			sentimentController.get(counter).sentimentNameLabel().setText(entry.getKey().name());
-			sentimentController.get(counter).analyzingResultLabel().setText(String.valueOf(entry.getValue()));
-			counter++;
+				sentimentController.get(counter).sentimentNameLabel().setText(entry.getKey().name());
+				sentimentController.get(counter).analyzingResultLabel().setText(String.valueOf(entry.getValue()));
+				counter++;
 		}
 	}
 
