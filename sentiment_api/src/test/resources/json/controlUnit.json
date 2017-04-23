@@ -1,0 +1,36 @@
+{
+	"sentiments": [
+		{
+			"neutrals": {
+				"words": [],
+				"candidates": {
+					
+				}
+			},
+			"valences": {
+				"timesLearned": 1,
+				"values": {
+					
+				}
+			},
+			"name": "jojo",
+			"description": ""
+		},
+		{
+			"neutrals": {
+				"words": [],
+				"candidates": {
+					
+				}
+			},
+			"valences": {
+				"timesLearned": 1,
+				"values": {
+					
+				}
+			},
+			"name": "hello",
+			"description": ""
+		}
+	]
+}

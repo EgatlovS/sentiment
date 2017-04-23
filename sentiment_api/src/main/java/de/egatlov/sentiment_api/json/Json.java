@@ -1,7 +1,6 @@
 package de.egatlov.sentiment_api.json;
 
 import java.io.File;
-import java.io.InputStream;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -37,12 +36,11 @@ public final class Json {
 	 *             - Throws an Exception if the Object weren't build.
 	 */
 	public <T> T buildObject(Class<T> clazz) throws Exception {
-		InputStream inJson = Json.class.getResourceAsStream(pathToJson);
 		T object = null;
 		try {
-			object = new ObjectMapper().readValue(inJson, clazz);
+			object = new ObjectMapper().readValue(new File(pathToJson), clazz);
 		} catch (Exception e) {
-			throw new Exception("Couldnt create Object", e.getCause());
+			throw new Exception("Couldnt create Object from path " + pathToJson, e);
 		}
 		return object;
 	}
@@ -51,8 +49,8 @@ public final class Json {
 		ObjectMapper mapper = new ObjectMapper();
 		try {
 			mapper.writeValue(new File(pathToJson), object);
-		} catch (Exception e){
-			throw new Exception("Couldn't write Object", e.getCause());
+		} catch (Exception e) {
+			throw new Exception("Couldn't write Object", e);
 		}
 	}
 

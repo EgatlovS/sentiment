@@ -64,6 +64,10 @@ public final class SimpleSentimentCU implements ControlUnit {
 		}
 	}
 
+	public SimpleSentimentCU() {
+		this.sentiments = new HashMap<Sentiment, Double>();
+	}
+
 	/**
 	 * {@inheritDoc}
 	 */

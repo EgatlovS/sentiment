@@ -26,8 +26,7 @@ public final class Neutrals {
 	@JsonProperty
 	private final List<String> words;
 	/**
-	 * Candidates for neutral words.
-	 * Note:</br>
+	 * Candidates for neutral words. Note:</br>
 	 * Key: the candidate word.</br>
 	 * Value: times unlearned.</br>
 	 */
@@ -36,8 +35,11 @@ public final class Neutrals {
 
 	/**
 	 * Creates Neutrals out of Json.
-	 * @param json - the json representing Object.
-	 * @throws Exception - Exception is thrown if object couldn't be created.
+	 * 
+	 * @param json
+	 *            - the json representing Object.
+	 * @throws Exception
+	 *             - Exception is thrown if object couldn't be created.
 	 */
 	public Neutrals(Json json) throws Exception {
 		Neutrals neutrals = json.buildObject(Neutrals.class);
@@ -47,8 +49,11 @@ public final class Neutrals {
 
 	/**
 	 * Create neutrals out of words and candidates.
-	 * @param words - the neutral words.
-	 * @param candidates - the candidates.
+	 * 
+	 * @param words
+	 *            - the neutral words.
+	 * @param candidates
+	 *            - the candidates.
 	 */
 	public Neutrals(List<String> words, Map<String, Integer> candidates) {
 		this.words = words;
@@ -63,8 +68,11 @@ public final class Neutrals {
 	}
 
 	/**
-	 * Adds given words to candidates or increments there values if already present.
-	 * @param words - the words to add or increment.
+	 * Adds given words to candidates or increments there values if already
+	 * present.
+	 * 
+	 * @param words
+	 *            - the words to add or increment.
 	 */
 	public void addOrIncrementCandidates(List<String> words) {
 		for (String word : words) {
@@ -76,6 +84,7 @@ public final class Neutrals {
 
 	/**
 	 * Checks candidates for the words which should be promoted.
+	 * 
 	 * @return Returns candidates to promote.
 	 */
 	private List<String> candidatesToPromote() {
@@ -91,6 +100,7 @@ public final class Neutrals {
 
 	/**
 	 * Representing all candidates.
+	 * 
 	 * @return Returns all candidates.
 	 */
 	public Map<String, Integer> candidates() {
@@ -99,6 +109,7 @@ public final class Neutrals {
 
 	/**
 	 * Representing neutral words.
+	 * 
 	 * @return Returns all candidates.
 	 */
 	public List<String> words() {

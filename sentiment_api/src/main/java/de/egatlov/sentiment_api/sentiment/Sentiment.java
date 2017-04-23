@@ -3,6 +3,7 @@ package de.egatlov.sentiment_api.sentiment;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import de.egatlov.sentiment_api.json.Json;
@@ -75,7 +76,8 @@ public final class Sentiment {
 	 * @param description
 	 *            - the description of this sentiment.
 	 */
-	public Sentiment(Neutrals neutrals, Valences valences, String name, String description) {
+	@JsonCreator
+	public Sentiment(@JsonProperty(value = "neutrals") Neutrals neutrals, @JsonProperty(value = "valences") Valences valences, @JsonProperty(value = "name") String name, @JsonProperty(value = "description") String description) {
 		this.valences = valences;
 		this.neutrals = neutrals;
 		this.name = name;

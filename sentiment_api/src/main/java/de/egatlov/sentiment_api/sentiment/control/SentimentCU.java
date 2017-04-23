@@ -6,7 +6,11 @@ import java.util.Map;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
+import de.egatlov.sentiment_api.json.ControlUnitDeserializer;
+import de.egatlov.sentiment_api.json.ControlUnitSerializer;
 import de.egatlov.sentiment_api.json.Json;
 import de.egatlov.sentiment_api.sentiment.Sentiment;
 import de.egatlov.sentiment_api.util.CleanText;
@@ -34,6 +38,8 @@ public final class SentimentCU implements ControlUnit {
 	 * Value: The result of the last analysis.
 	 */
 	@JsonProperty
+	@JsonDeserialize(using = ControlUnitDeserializer.class)
+	@JsonSerialize(using = ControlUnitSerializer.class)
 	private final Map<Sentiment, Double> sentiments;
 
 	/**
@@ -60,6 +66,10 @@ public final class SentimentCU implements ControlUnit {
 		for (Sentiment sentiment : sentiments) {
 			this.sentiments.put(sentiment, 0.0);
 		}
+	}
+
+	public SentimentCU() {
+		this.sentiments = new HashMap<Sentiment, Double>();
 	}
 
 	/**
