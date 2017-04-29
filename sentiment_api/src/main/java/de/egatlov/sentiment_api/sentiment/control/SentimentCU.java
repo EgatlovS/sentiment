@@ -148,4 +148,19 @@ public final class SentimentCU implements ControlUnit {
 		sentiment.unlearn(toBeUnTeached);
 	}
 
+	public void improve(Sentiment toBeTheWinner, String text) {
+		Set<Sentiment> sents = sentiments.keySet();
+		Sentiment lastWinner = new Highest(sentiments).get();
+		for (Sentiment sentiment : sents) {
+			if (sentiment.equals(lastWinner)) {
+				unteach(lastWinner, text);
+				unteach(lastWinner, text);
+			} else if (sentiment.equals(toBeTheWinner)) {
+				teach(toBeTheWinner, text);
+				teach(toBeTheWinner, text);
+			}
+
+		}
+	}
+
 }
