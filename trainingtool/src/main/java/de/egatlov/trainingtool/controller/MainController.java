@@ -5,18 +5,11 @@ import com.jfoenix.controls.JFXMasonryPane;
 import com.jfoenix.controls.JFXTextArea;
 
 import de.egatlov.trainingtool.data.ApplicationData;
-import de.egatlov.trainingtool.views.View;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
 
 public final class MainController {
-
-	@FXML
-	private MenuItem saveProjectBtn;
-
-	@FXML
-	private MenuItem loadProjectBtn;
 
 	@FXML
 	private MenuItem createSentimentBtn;
@@ -49,16 +42,6 @@ public final class MainController {
 	@FXML
 	void aboutWindow(ActionEvent event) throws Exception {
 		ApplicationData.get().aboutView().show();
-	}
-
-	@FXML
-	void loadProjectWindow(ActionEvent event) throws Exception {
-		ApplicationData.get().loadProjectView().show();
-	}
-
-	@FXML
-	void saveProjectWindow(ActionEvent event) throws Exception {
-		ApplicationData.get().saveProjectView().show();
 	}
 
 	@FXML
