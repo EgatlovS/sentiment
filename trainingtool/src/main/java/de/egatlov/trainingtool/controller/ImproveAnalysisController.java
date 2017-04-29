@@ -1,6 +1,7 @@
 package de.egatlov.trainingtool.controller;
 
 import java.util.Map;
+import java.util.Set;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
@@ -41,7 +42,14 @@ public final class ImproveAnalysisController {
 
 	@FXML
 	void improve(ActionEvent event) {
-
+		Set<Sentiment> sents = ApplicationData.get().getControlUnit().sentiments().keySet();
+		for (Sentiment sentiment : sents) {
+			if (sentiment.name().equals(chooseSentimentCB.getValue())) {
+				ApplicationData.get().getControlUnit().improve(sentiment, ApplicationData.get().getLastAnalyzedText());
+				break;
+			}
+		}
+		ApplicationData.get().sentimentsView().updateSentiments();
 	}
 
 }

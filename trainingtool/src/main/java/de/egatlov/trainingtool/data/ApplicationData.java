@@ -22,6 +22,7 @@ public final class ApplicationData {
 	private AboutView aboutView = new AboutView();
 	// SentimentControlUnit
 	private SentimentCU controlUnit;
+	private String lastAnalyzedText;
 
 	private ApplicationData() {
 	}
@@ -70,6 +71,14 @@ public final class ApplicationData {
 
 	public AboutView aboutView() {
 		return aboutView;
+	}
+
+	public String getLastAnalyzedText() {
+		return lastAnalyzedText;
+	}
+
+	public void setLastAnalyzedText(String lastAnalyzedText) {
+		this.lastAnalyzedText = lastAnalyzedText;
 	}
 
 }

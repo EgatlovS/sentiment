@@ -68,6 +68,7 @@ public final class MainController {
 	void analyze(ActionEvent event) {
 		ApplicationData.get().getControlUnit().analyzed(textToAnalyzeTA.getText());
 		ApplicationData.get().sentimentsView().updateSentiments();
+		ApplicationData.get().setLastAnalyzedText(textToAnalyzeTA.getText());
 	}
 
 	public JFXMasonryPane masonry() {
